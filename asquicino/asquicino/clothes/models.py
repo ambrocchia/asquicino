@@ -47,7 +47,7 @@ class ClothesElement(models.Model):
     name = models.CharField(u'Name', max_length=15)
     img = models.ImageField(upload_to='site_media')
     brand = models.CharField(u'Brand', max_length=15, db_index=True)
-    description = models.CharField(u'Description')
+    description = models.CharField(u'Description', max_length=100)
     active = models.BooleanField(u'Active', default=False)
     colour = ArrayField(models.CharField(u'Colour', max_length=10, choices=COLORS),
             default=list)
@@ -55,6 +55,6 @@ class ClothesElement(models.Model):
             default=list)
     style = ArrayField(models.CharField(u'Style', max_length=10, choices=STYLE),
             default=list)
-    layer = ArrayField(models.IntegerField(u'Layer', max_length=10, choices=LAYERS),
+    layer = ArrayField(models.IntegerField(u'Layer', choices=LAYERS),
             default=list)
 
